@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        string s=to_string(x);
+        long long a=0,b=(strlen(s.c_str())-1);
+        if(x<0)
+            return false;
+        while(a<b)
+        {
+            if(s[a]!=s[b])
+                return false;
+            a++;
+            b--;
+        }
+        return true;
+        
+    }
+};
