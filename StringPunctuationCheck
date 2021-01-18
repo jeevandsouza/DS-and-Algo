@@ -1,0 +1,15 @@
+Given a string, remove the punctuation from the string if the given character is a punctuation character 
+as classified by the current C locale. The default C locale classifies these characters as punctuation:
+
+#code
+
+def onlyAlpha(str):
+    result=''
+    for letter in str:
+        if(letter.isalpha() or letter.isspace()):
+            result = result + letter
+    return result
+
+str = '%welcome'' to @geeksforgeek<s'
+print(onlyAlpha(str))
+
