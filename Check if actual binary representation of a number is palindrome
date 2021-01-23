@@ -1,0 +1,42 @@
+Given a non-negative integer N. Check whether the Binary Representation of the number is Palindrome or not. 
+Note: No leading 0’s are being considered.
+
+N = 5
+Output: 1
+Explanation: The Binary Representation of
+5 is 101 which is a Palindrome.
+
+class Solution{
+public:
+	
+	int binaryPalin (long long int N)
+	{
+	    string convertedToBinary;
+	    vector<char>ToCheckPalindrome;
+	    convertedToBinary = bitset< 64 >(N).to_string(); 
+        convertedToBinary.erase(0, convertedToBinary.find_first_not_of('0'));
+	    for (long long int i = 0;i <convertedToBinary.length();i++)
+	        ToCheckPalindrome.push_back(convertedToBinary[i]);
+	    auto reverseLoop =   ToCheckPalindrome.rbegin();  
+	    for (long long int i = 0; i != (ToCheckPalindrome.size()) / 2;i++)
+	    {
+	        if(ToCheckPalindrome[i] != *reverseLoop)
+	        return 0;
+	        reverseLoop++;
+	    }
+	    return 1;
+	}
+	
+/*Things learned
+
+**How to use a vector, declaring it, using it's properties such as size,begin and rbegin to iterate ,pushing the elements
+** using auto to declare when unsure of the datatype
+** using bitset functions to convert into bits and stringify it using to_string function.
+** As it is 64 bit we get leading zeros we need to remove leading zeros by using erase function which takes start and end index
+find_first_not_of gives the end index.
+*/
+
+
+
+
+
